@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gira Discos 3D | La Redoute</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header-wrapper">
+        <div class="header-top">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/default-icon.png" alt="La Redoute">
+                </a>
+            </div>
+            <div class="nav-tabs">
+                <div class="nav-item active">CASA</div>
+                <div class="nav-item">MODA</div>
+            </div>
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" class="search-input" id="searchInput" value="Gira Disco" placeholder="O que procura?">
+                <div class="close-icon-btn" id="clearSearch"><i class="fa-solid fa-xmark"></i></div>
+            </div>
+            <div class="right-icons">
+                <i class="fa-regular fa-user icon-large" title="Login/Registar"></i>
+                <i class="fa-regular fa-heart icon-large" title="Produtos Favoritos"></i>
+                <i class="fa-solid fa-bag-shopping icon-large" title="Carrinho de Compras"></i>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <button class="menu-btn"><i class="fa-solid fa-bars"></i>MENU</button>
+            <ul class="category-list">
+                <li><a href="#">Cocooning</a></li>
+                <li><a href="#">Mesa de festa</a></li>
+                <li><a href="#">Têxtil-lar</a></li>
+                <li><a href="#">Top Vendas</a></li>
+            </ul>
+            <a href="#" class="pro-link">Profissionais</a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <div class="breadcrumbs" style="margin-bottom: 20px;">
+            <a href="index.html">Início</a> <span>></span> High-Tech <span>></span> Som <span>></span> Audio, HiFi <span>></span> Gira-discos
+        </div>
+
+        <a href="index.html" style="display:inline-block; margin-bottom: 20px; font-weight:600; color:#666;">
+            <i class="fa-solid fa-arrow-left"></i> Voltar
+        </a>
+
+        <div class="product-page-container">
+            
+            <div class="visual-column">
+                <div class="gallery-wrapper">
+                    
+                    <div class="main-display-area" id="main-display-area">
+                        
+                        <div class="top-left-controls" id="top-left-panel">
+                            <button class="btn-top" id="btn_mudar_base" data-tooltip="Alterar Material">
+                                <i class="fa-solid fa-palette"></i>
+                            </button>
+                        </div>
+
+                        <div class="top-center-controls" id="top-center-panel">
+                            <button class="btn-top" id="btn_pause_rot" data-tooltip="Pausar Rotação">
+                                <i class="fa-solid fa-arrows-rotate"></i>
+                            </button>
+                        </div>
+
+                        <div class="top-right-controls" id="top-right-panel">
+                            <button class="btn-top" id="btn_mesa_toggle" data-tooltip="Mostrar Mesa">
+                                <i class="fa-solid fa-layer-group"></i> Mesa
+                            </button>
+                        </div>
+
+                        <button class="nav-arrow arrow-prev" onclick="navegarAmbiente(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="nav-arrow arrow-next" onclick="navegarAmbiente(1)"><i class="fa-solid fa-chevron-right"></i></button>
+                        
+                        <button class="expand-btn" onclick="abrirPopup()"><i class="fa-solid fa-expand"></i></button>
+                        <button class="btn-clean-view" id="btn_clean_view" data-tooltip="Ocultar Botões">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+
+                        <div class="slider-container">
+                            <div style="width: 100%; height: 100%;" id="slide-3d-wrapper">
+                                <div id="view-3d" style="width: 100%; height: 100%;">
+                                    <canvas id="meuCanvas"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="controls-3d-panel" class="controls-wrapper overlay-mode">
+                            
+                            <div class="panel-header-toggle" id="btn_toggle_panel" title="Minimizar/Expandir">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </div>
+
+                            <div class="panel-buttons-content">
+                                <div class="buttons-row">
+                                    <button class="btn-action" id="btn_girarDisco" data-tooltip="Colocar o Disco a Girar">Girar Disco</button>
+                                    <button class="btn-action" id="btn_toggleAgulha" data-tooltip="Mover a Agulha para o Disco">Colocar Agulha</button>
+                                    <button class="btn-action" id="btn_toggleTampa" data-tooltip="Fechar a Tampa de Proteção">Fechar Tampa</button>
+                                    <button class="btn-action" id="btn_pause_anim" data-tooltip="Pausar Animações">
+                                        <i class="fa-solid fa-pause"></i>
+                                    </button>
+                                    <button class="btn-action" id="btn_reset" data-tooltip="Reset"><i class="fa-solid fa-rotate-left"></i></button>
+                                </div>
+
+                                <div class="volume-row">
+                                    <div class="volume-wrapper">
+                                        <button class="btn-action btn-volume-icon" id="btn_volume" data-tooltip="Silenciar Música">
+                                            <i class="fa-solid fa-volume-high"></i>
+                                        </button>
+                                        <div class="volume-slider-container">
+                                            <input type="range" id="volume_slider" min="0" max="1" step="0.01" value="0.2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="product-description-container">
+                    <h3 class="desc-title">Descrição</h3>
+                    <div class="desc-content" id="descContent">
+                        <p>
+                            Gira-discos com Base de Madeira de Carvalho da Lenco é uma escolha moderna e elegante para os amantes de vinil. 
+                            Com um acabamento em madeira de alta qualidade e colunas integradas no próprio prato, 
+                            oferece uma solução "tudo-em-um" sem necessidade de amplificadores externos.
+                        </p>
+                        <p>
+                            Possui também entrada para Auscutadores para puderes ouvir com melhor clareza a tua música favorita
+                        </p>
+                        <p>
+                            Além disso tem um botão que serve para colocar ou retirar a agulha no disco sem que haja qualquer
+                            tipo de dano por mal manuseio.
+                        </p>
+                        
+                        <div class="desc-fade-overlay" id="descFade"></div>
+                    </div>
+                    
+                    <button class="read-more-btn" id="btnReadMore">
+                        <span>Ler mais</span> <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="details-column">
+                <div class="product-brand">LENCO</div>
+                <h1 class="product-title">Gira-discos c/ Base de Madeira de Carvalho</h1>
+                
+                <div class="detail-prices-wrapper">
+                    <div class="price-tag" id="dynamic-price"></div>
+                    <div class="detail-price-old" id="dynamic-old-price"></div>
+                    <div class="detail-discount-tag" id="dynamic-discount"></div>
+                </div>
+
+                <button class="add-to-cart-btn" id="btnAddToCart">
+                    <span class="btn-text">Juntar ao carrinho</span>
+                    <div class="btn-right-section">
+                        <div class="qty-controls" id="qtyControls" style="display: none;">
+                            <span class="qty-btn minus"><i class="fa-solid fa-minus"></i></span>
+                            <span class="qty-btn plus"><i class="fa-solid fa-plus"></i></span>
+                        </div>
+                        <div class="cart-icon-wrapper">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="cart-badge" id="cartBadge">0</span>
+                        </div>
+                    </div>
+                </button>
+
+                <button class="delivery-toggle-btn" id="btnToggleDelivery">
+                    <span>Informações de Entrega</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="delivery-info-content" id="deliveryContent">
+                    
+                    <div class="klarna-text">
+                        <span style="font-weight:bold; background:pink; padding:0 3px; margin-right:5px;">Klarna.</span> 3 pagamentos de 66,66 € sem juros.
+                    </div>
+
+                    <div class="shipping-info">
+                        <i class="fa-solid fa-truck-fast" style="font-size: 20px;"></i>
+                        <div>Disponível para envio até 3 dias úteis <br> Entregue pela própria marca.</div>
+                    </div>
+
+                    <div class="service-box"><span><i class="fa-regular fa-clock"></i> Disponível para envio pela marca</span></div>
+                    <div class="service-box"><span><i class="fa-solid fa-box"></i> Entrega em casa</span></div>
+                    
+                    <div style="background-color: blue; color: white; padding: 15px; border-radius: 4px; margin-top: 15px; font-size: 13px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <strong>Entrega gratuita</strong>
+                            
+                            <div class="toggle-switch" id="btnFreeDeliveryToggle">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 5px;">30 dias de oferta, depois 18,90€/ano</div>
+                    </div>
+                </div>
+
+                <button class="buy-now-btn">
+                    <i class="fa-solid fa-cart-shopping"></i> Comprar Agora
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="fecharPopup()">&times;</span>
+        
+        <button class="nav-arrow arrow-prev" style="position:fixed; left:20px; z-index:1001;" onclick="navegarAmbiente(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="nav-arrow arrow-next" style="position:fixed; right:20px; z-index:1001;" onclick="navegarAmbiente(1)"><i class="fa-solid fa-chevron-right"></i></button>
+
+        <div class="modal-body-wrapper">
+            <div id="modal-display-area" class="modal-slider-box">
+                <div style="width: 100%; height: 100%;" id="modal-slide-3d"></div> 
+            </div>
+        </div>
+    </div>
+
+    <div id="custom-tooltip"></div>
+
+    <script async src="/node_modules/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "/node_modules/three/build/three.module.js",
+                "three/addons/": "/node_modules/three/examples/jsm/"
+            }
+        }
+    </script>
+    <script type="module" defer src="./gira-discos-3d.js"></script>
+    <footer class="site-footer">
+        <div class="footer-top-bar" title="Clique para ver mais informações">
+            <div class="service-item"><i class="fa-solid fa-truck-fast"></i> ENTREGA</div>
+            <div class="service-item"><i class="fa-solid fa-arrow-rotate-left"></i> TROCAS & DEVOLUÇÕES</div>
+            <div class="service-item"><i class="fa-regular fa-credit-card"></i> PAGAMENTO SEGURO</div>
+            <div class="service-item"><i class="fa-solid fa-headset"></i> APOIO AO CLIENTE</div>
+            
+            <div class="footer-toggle-btn">
+                <i class="fa-solid fa-chevron-up footer-toggle-icon"></i>
+            </div>
+        </div>
+
+        <div class="footer-expandable-content">
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>La Redoute</h4>
+                    <ul>
+                        <li><a href="#">Quem somos</a></li>
+                        <li><a href="#">Contactos</a></li>
+                        <li><a href="#">Sustentabilidade</a></li>
+                        <li><a href="#">Recrutamento</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#">Ajuda</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Montagem de mobiliário</a></li>
+                        <li><a href="#">Compra e Poupa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Marcas Exclusivas</h4>
+                    <ul>
+                        <li><a href="#">La Redoute Collections</a></li>
+                        <li><a href="#">La Redoute Intérieurs</a></li>
+                        <li><a href="#">AM.PM</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Universo La Redoute</h4>
+                    <ul>
+                        <li><a href="#">Inspiração</a></li>
+                        <li><a href="#">Vídeos</a></li>
+                        <li><a href="#">Profissionais</a></li>
+                        <li><a href="#">APP La Redoute</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom-info">
+                <div class="bottom-section">
+                    <h5>Modos de Pagamento</h5>
+                    <div class="payment-icons">
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <i class="fa-brands fa-cc-paypal"></i>
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-brands fa-apple-pay"></i>
+                    </div>
+                </div>
+                <div class="bottom-section">
+                    <h5>Sempre Juntos</h5>
+                    <div class="social-icons">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-pinterest"></i>
+                    </div>
+                </div>
+                <div class="bottom-section">
+                    <h5>App La Redoute</h5>
+                    <div class="app-badges">
+                        <button style="background:black; color:white; border:1px solid white; padding:5px 10px; border-radius:5px; cursor:pointer;">
+                            <i class="fa-brands fa-google-play"></i> Google Play
+                        </button>
+                        <button style="background:black; color:white; border:1px solid white; padding:5px 10px; border-radius:5px; cursor:pointer;">
+                            <i class="fa-brands fa-apple"></i> App Store
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-legal-bar">
+                <div class="legal-links">
+                    <span>Condições gerais de venda</span>
+                    <span>*Condições das ofertas</span>
+                    <span>Política de privacidade e cookies</span>
+                    <span>Livro de reclamações</span>
+                </div>
+                <div class="country-select">
+                    <i class="fa-solid fa-globe"></i> Portugal
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>

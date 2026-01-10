@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gira Disco | La Redoute</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header-wrapper">
+        <div class="header-top">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/default-icon.png" alt="La Redoute">
+                </a>
+            </div>
+
+            <div class="nav-tabs">
+                <div class="nav-item active">CASA</div>
+                <div class="nav-item">MODA</div>
+            </div>
+
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" class="search-input" id="searchInput" value="Gira Disco" placeholder="O que procura?">
+                <div class="close-icon-btn" id="clearSearch">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+
+            <div class="right-icons">
+                <i class="fa-regular fa-user icon-large" title="Login/Registar"></i>
+                <i class="fa-regular fa-heart icon-large" title="Produtos Favoritos"></i>
+                <i class="fa-solid fa-bag-shopping icon-large" title="Carrinho de Compras"></i>
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <button class="menu-btn"><i class="fa-solid fa-bars"></i>MENU</button>
+            <ul class="category-list">
+                <li><a href="#">Cocooning</a></li>
+                <li><a href="#">Mesa de festa</a></li>
+                <li><a href="#">Têxtil-lar</a></li>
+                <li><a href="#">Top Vendas</a></li>
+            </ul>
+            <a href="#" class="pro-link">Profissionais</a>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <div class="breadcrumbs">
+            Início <span>></span> High tech <span>></span> Audio, HiFi <span>></span> Gira-Discos
+        </div>
+
+        <section class="products-area">
+            <div class="results-header">
+                <h1 class="results-title">Gira Disco</h1>
+                <span class="results-count">4 artigos</span>
+            </div>
+
+            <div id="grid-produtos" class="product-grid"></div>
+        </section>
+        
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-top-bar" title="Clique para ver mais informações">
+            <div class="service-item"><i class="fa-solid fa-truck-fast"></i> ENTREGA</div>
+            <div class="service-item"><i class="fa-solid fa-arrow-rotate-left"></i> TROCAS & DEVOLUÇÕES</div>
+            <div class="service-item"><i class="fa-regular fa-credit-card"></i> PAGAMENTO SEGURO</div>
+            <div class="service-item"><i class="fa-solid fa-headset"></i> APOIO AO CLIENTE</div>
+            
+            <div class="footer-toggle-btn">
+                <i class="fa-solid fa-chevron-up footer-toggle-icon"></i>
+            </div>
+        </div>
+
+        <div class="footer-expandable-content">
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h4>La Redoute</h4>
+                    <ul>
+                        <li><a href="#">Quem somos</a></li>
+                        <li><a href="#">Contactos</a></li>
+                        <li><a href="#">Sustentabilidade</a></li>
+                        <li><a href="#">Recrutamento</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#">Ajuda</a></li>
+                        <li><a href="#">Trocas e Devoluções</a></li>
+                        <li><a href="#">Montagem de mobiliário</a></li>
+                        <li><a href="#">Compra e Poupa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Marcas Exclusivas</h4>
+                    <ul>
+                        <li><a href="#">La Redoute Collections</a></li>
+                        <li><a href="#">La Redoute Intérieurs</a></li>
+                        <li><a href="#">AM.PM</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Universo La Redoute</h4>
+                    <ul>
+                        <li><a href="#">Inspiração</a></li>
+                        <li><a href="#">Vídeos</a></li>
+                        <li><a href="#">Profissionais</a></li>
+                        <li><a href="#">APP La Redoute</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom-info">
+                <div class="bottom-section">
+                    <h5>Modos de Pagamento</h5>
+                    <div class="payment-icons">
+                        <i class="fa-brands fa-cc-visa"></i>
+                        <i class="fa-brands fa-cc-paypal"></i>
+                        <i class="fa-brands fa-cc-mastercard"></i>
+                        <i class="fa-brands fa-apple-pay"></i>
+                    </div>
+                </div>
+                <div class="bottom-section">
+                    <h5>Sempre Juntos</h5>
+                    <div class="social-icons">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-youtube"></i>
+                        <i class="fa-brands fa-pinterest"></i>
+                    </div>
+                </div>
+                <div class="bottom-section">
+                    <h5>App La Redoute</h5>
+                    <div class="app-badges">
+                        <button style="background:black; color:white; border:1px solid white; padding:5px 10px; border-radius:5px; cursor:pointer;">
+                            <i class="fa-brands fa-google-play"></i> Google Play
+                        </button>
+                        <button style="background:black; color:white; border:1px solid white; padding:5px 10px; border-radius:5px; cursor:pointer;">
+                            <i class="fa-brands fa-apple"></i> App Store
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-legal-bar">
+                <div class="legal-links">
+                    <span>Condições gerais de venda</span>
+                    <span>*Condições das ofertas</span>
+                    <span>Política de privacidade e cookies</span>
+                    <span>Livro de reclamações</span>
+                </div>
+                <div class="country-select">
+                    <i class="fa-solid fa-globe"></i> Portugal
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
